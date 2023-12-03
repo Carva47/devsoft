@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link estilo.css-->
+    <link rel="stylesheet" href="assets/css/estilo.css">
+    <title> DevSoft Test</title>
+</head>
+<body>
+    <header>
+        <ul>
+            <li> <a href="index.html"> Cadastrar </a></li>
+            <li> <a href="listar_produtos.php"> Produtos </a></li>
+        </ul>
+    </header>
+    
+    <section class="container">
+            <h1>Cadastro de Produtos</h1>
+        <form action="./cadastrar_produto.php" method="POST">
+            <label for="produto">Nome do Produto:</label>
+            <input type="text" id="produto" name="produto" required>
+            <button type="submit" id="btn" onclick="salvar()">Cadastrar</button>
+       </form>
+    </section>
+   
+  <script src="assets/js/index.js"></script>      
+</body>
+</html>
