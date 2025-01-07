@@ -17,246 +17,323 @@
 <body>
       <div class="relative bg-white">
         <!-- Header -->
-        <header class="bg-gray-800 bg-opacity-80">
-          <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <header class="bg-gray-800 bg-opacity-80 fixed top-0 left-0 right-0 z-50">
+          <nav class="flex items-center justify-between p-2 lg:px-8" aria-label="Global">
             <div class="flex lg:flex-1">
               <a href="index.html">
-                <img  src="./assets/img/logo.png" alt="" width="100 " height="100">
+                <img src="./assets/img/logo.png" alt="Logo" width="100" height="50">
               </a>
             </div>
-            <div class="flex lg:hidden">
-              <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" onclick="toggleMenu()">
+            
+            <!-- Botão de Menu Hamburguer (apenas em telas pequenas) -->
+            <div class="flex lg:hidden px-2">
+              <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-yellow-300 border-2 border-yellow-300" onclick="toggleMenu()">
                 <span class="sr-only">Open main menu</span>
-                <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                 </svg>
               </button>
             </div>
+        
+            <!-- Menu para telas grandes -->
             <div class="hidden lg:flex lg:gap-x-12" id="menu">
-              <a href="#" class="text-sm font-semibold text-yellow-300">Home</a>
-              <a href="#" class="text-sm font-semibold text-yellow-300">Produtos</a>
-              <a href="#" class="text-sm font-semibold text-yellow-300">Catalogo</a>
-              <a href="#" class="text-sm font-semibold text-yellow-300">Sobre Nós</a>
-              <a href="#" class="text-sm font-semibold text-yellow-300">Contactos</a>
+              <a href="index.html" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Home</a>
+              <a href="#produtos" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Produtos</a>
+              <a href="#catalogo" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Catálogo</a>
+              <a href="#sobrenos" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Sobre Nós</a>
+              <a href="#contacto" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Contactos</a>
             </div>
+        
+            <!-- Link para "Fale Connosco" -->
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-              <a href="#" class="text-sm font-semibold text-yellow-300">Fale Connosco<span aria-hidden="true">&rarr;</span></a>
+              <a href="https://wa.me/+244936174188" 
+              target="_blank"  class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Fale Connosco<span aria-hidden="true">&rarr;</span></a>
             </div>
           </nav>
+        
+          <!-- Menu para telas pequenas (escondido inicialmente) -->
+          <div id="mobile-menu" class="lg:hidden fixed inset-0 z-50 bg-gray-800 bg-opacity-90 hidden">
+            <div class="flex flex-col items-center py-6 space-y-4">
+              <button class="self-end text-yellow-300 p-2" onclick="toggleMenu()">
+                <svg class="w-12 h-12 " fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <a href="index.html" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Home</a>
+              <a href="#produtos" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Produtos</a>
+              <a href="#catalogo" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Catálogo</a>
+              <a href="#sobrenos" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Sobre Nós</a>
+              <a href="#contacto" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Contactos</a>
+              <a href="https://wa.me/+244936174188" target="_blank" 
+              class="text-lg font-semibold text-yellow-300 hover:text-yellow-500">Fale Connosco</a>
+            </div>
+          </div>
         </header>
-      
+        
         <!-- Carrossel de Imagens -->
-        <div id="carousel" class="relative isolate overflow-hidden h-screen">
+        <div id="carousel" class="relative isolate overflow-hidden">
           <!-- Imagens do carrossel -->
-          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-100" style="background-image: url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?q=80&w=1470&auto=format&fit=crop');" data-index="1"></div>
-          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-0" style="background-image: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1470&auto=format&fit=crop');" data-index="2"></div>
-          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-0" style="background-image: url('https://images.unsplash.com/photo-1611095783498-093c2b67b7e8?q=80&w=1470&auto=format&fit=crop');" data-index="3"></div>
+          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-100" style="background-image: url('assets/img/WhatsApp\ Image\ 2025-01-07\ at\ 05.37.22.jpeg');" data-index="1"></div>
+          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-0" style="background-image: url('assets/img/WhatsApp\ Image\ 2025-01-07\ at\ 05.38.40.jpeg');" data-index="2"></div>
+          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-0" style="background-image: url('assets/img/WhatsApp\ Image\ 2025-01-07\ at\ 05.38.41\ \(1\).jpeg');" data-index="3"></div>
+          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-0" style="background-image: url('assets/img/WhatsApp\ Image\ 2025-01-07\ at\ 05.38.41.jpeg');" data-index="4"></div>
           <!-- Conteúdo principal -->
           <div class="relative px-6 pt-14 lg:px-8 bg-gray-800 bg-opacity-60 h-full flex items-center justify-center">
             <div class="text-center">
               <h1 class="text-5xl text-white sm:text-7xl">ShopGal Oil & Gás</h1>
               <p class="mt-8 text-lg font-medium text-gray-100 sm:text-xl">Uma Simples Maneira de chegar à América.</p>
               <div class="mt-10 flex items-center justify-center gap-x-6">
-                <a href="#" class="rounded-md bg-yellow-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">Entrar em Contato</a>
+                <a href="#" class="rounded-md bg-yellow-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-600">Entrar em Contato</a>
                 <a href="#" class="text-sm font-semibold text-gray-200">SABER MAIS <span aria-hidden="true">→</span></a>
               </div>
             </div>
           </div>
         </div>
       </div>
-        
-      <!-- Parceiros 
-      <section class="bg-gray-50 py-12">
-        <div class="container mx-auto px-4">
-          <h2 class="text-center text-2xl font-bold text-gray-800 mb-6">Nossos Parceiros</h2>
-          <div class="relative">
-            
-            <div class="flex items-center space-x-8 animate-scroll">
-              
-              <div class="w-40 h-16 flex items-center justify-center bg-white shadow-md rounded-md">
-                <img src="https://via.placeholder.com/150x50" alt="Logo Parceiro 1" class="max-w-full max-h-full object-contain">
-              </div>
-        
-              <div class="w-40 h-16 flex items-center justify-center bg-white shadow-md rounded-md">
-                <img src="https://via.placeholder.com/150x50" alt="Logo Parceiro 2" class="max-w-full max-h-full object-contain">
-              </div>
-    
-              <div class="w-40 h-16 flex items-center justify-center bg-white shadow-md rounded-md">
-                <img src="https://via.placeholder.com/150x50" alt="Logo Parceiro 3" class="max-w-full max-h-full object-contain">
-              </div>
-              
-              <div class="w-40 h-16 flex items-center justify-center bg-white shadow-md rounded-md">
-                <img src="https://via.placeholder.com/150x50" alt="Logo Parceiro 4" class="max-w-full max-h-full object-contain">
-              </div>
-             
-              <div class="w-40 h-16 flex items-center justify-center bg-white shadow-md rounded-md">
-                <img src="https://via.placeholder.com/150x50" alt="Logo Parceiro 5" class="max-w-full max-h-full object-contain">
-              </div>
-            </div>
-          </div>
+
+      <!-- Seção Sobre Nós -->
+<section id="sobrenos" class="bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 py-8">
+  <div class="max-w-6xl mx-auto px-6 lg:px-12">
+    <!-- Cabeçalho da Seção -->
+    <div class="text-center mb-2">
+      <h2 class="text-2xl font-extrabold text-gray-900">Sobre Nós</h2>
+      <p class="mt-6 text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
+        A Shopgal Veículos oferece um pacote integrado de produtos e serviços, 
+        garantindo viaturas modernas, manutenção de qualidade e assistência técnica inovadora. 
+        Atuamos com base em valores sólidos, proporcionando excelência a nossos clientes.
+      </p>
+    </div>
+
+    <!-- Filosofia de Negócio -->
+    <div class="text-center mb-4">
+      <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
+        Nosso objetivo é tornar-nos líderes no setor automóvel em Angola, baseando nossa filosofia de negócios em três pilares fundamentais:
+      </p>
+    </div>
+
+    <!-- Cards de Missão, Visão e Valores -->
+    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Missão -->
+      <div class="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center justify-center mb-2">
+          <i class="fas fa-bullseye text-3xl text-blue-500"></i>
         </div>
-      </section> -->
-      
-      <!-- Seção de Serviços -->
-<section class="bg-gray-50 py-16" id="services">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="text-center">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">Nossos Serviços</h2>
-        <p class="mt-4 text-lg leading-6 text-gray-600">Cuidamos do seu veículo como ele merece.</p>
+        <h3 class="text-xl font-bold text-center text-gray-800 mb-4">Nossa Missão</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Valorizar clientes, parceiros e funcionários, proporcionando experiências que superem expectativas, com elevados padrões de serviço.
+        </p>
       </div>
-      <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- Serviço 1 -->
-        <div class="bg-gray-800 shadow-lg rounded-lg p-1 text-center cursor-pointer " data-aos="fade-up" data-aos-delay="100">        
-          <div>
-            <img src="https://herreroandsons.com/wp-content/uploads/2024/05/Accesories-Home-Page.jpg" alt="" srcset=""> 
-          </div>
-          <div class=" p-2 cursor-pointer" >
-            <h3 class=" text-lg font-semibold  text-yellow-300">Accesories</h3>
-          </div>       
+
+      <!-- Visão -->
+      <div class="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-center justify-center mb-2">
+          <i class="fas fa-eye text-3xl text-green-500"></i>
         </div>
-        <!-- Serviço 2 -->
-        <div class="bg-gray-800 shadow-lg rounded-lg p-1 text-center" data-aos="fade-up" data-aos-delay="100">
-          <div>
-            <img src="https://herreroandsons.com/wp-content/uploads/2024/05/floor-mats.jpg" alt="" srcset=""> 
-          </div>
-          <div class=" p-2 cursor-pointer" >
-            <h3 class=" text-lg font-semibold  text-yellow-300">Floor Mats</h3>
-          </div>               
+        <h3 class="text-xl font-bold text-center text-gray-800 mb-4">Nossa Visão</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Ser reconhecidos como líderes em soluções automotivas, com um polo das melhores marcas e modelos em Angola.
+        </p>
+      </div>
+
+      <!-- Valores -->
+      <div class="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex items-center justify-center mb-2">
+          <i class="fas fa-handshake text-3xl text-yellow-500"></i>
         </div>
-        <!-- Serviço 3 -->
-        <div class="bg-gray-800 shadow-lg rounded-lg p-1 text-center" data-aos="fade-up" data-aos-delay="200">
-          <div>
-            <img src="https://herreroandsons.com/wp-content/uploads/2024/05/MOTOR-OILS.jpg" alt="" srcset=""> 
-          </div>
-          <div class=" p-2 cursor-pointer" >
-            <h3 class=" text-lg font-semibold  text-yellow-300">Motor Oils</h3>
-          </div>       
-        </div>
-        <!-- Serviço 4 -->
-        <div class="bg-gray-800 shadow-lg rounded-lg p-1 text-center" data-aos="fade-up" data-aos-delay="300">
-          <div>
-            <img src="https://herreroandsons.com/wp-content/uploads/2024/05/SEAT-COVERS.jpg" alt="" srcset=""> 
-          </div>
-          <div class=" p-2 cursor-pointer" >
-            <h3 class=" text-lg font-semibold  text-yellow-300">Seat Covers</h3>
-          </div>       
-        </div>
-        <!-- Serviço 5 -->
-        <div class="bg-gray-800 shadow-lg rounded-lg p-1 text-center" data-aos="fade-up" data-aos-delay="400">
-          <div>
-            <img src="https://herreroandsons.com/wp-content/uploads/2024/05/steering-wheel-covers.jpg" alt="" srcset=""> 
-          </div>
-          <div class=" p-2 cursor-pointer" >
-            <h3 class=" text-lg font-semibold  text-yellow-300">Steering Wheel Covers</h3>
-          </div>       
-        </div>
-        <!-- Serviço 6 -->
-        <div class="bg-gray-800 shadow-lg rounded-lg p-1 text-center" data-aos="fade-up" data-aos-delay="500">
-          <div>
-            <img src="https://herreroandsons.com/wp-content/uploads/2024/05/wheel-covers.jpg" alt="" srcset=""> 
-          </div>
-          <div class=" p-2 cursor-pointer" >
-            <h3 class=" text-lg font-semibold  text-yellow-300">Wheel Covers</h3>
-          </div>       
+        <h3 class="text-xl font-bold text-center text-gray-800 mb-4">Nossos Valores</h3>
+        <p class="text-gray-600 leading-relaxed">
+          Negócios orientados pela segurança, qualidade, inovação e confiabilidade, sempre buscando a satisfação do cliente.
+        </p>
       </div>
     </div>
-  </section>
-  
-  <div class="contact3 py-5">
-    <div class="text-center mb-5">
-      <h2 class="text-3xl font-bold text-gray-800">Entre em Contato</h2>
+  </div>
+</section>
+
+<!-- Seção de Serviços -->
+<section class="bg-gray-50 py-12" id="services">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl font-extrabold text-gray-900">Nossos Produtos</h2>
+      <p class="mt-4 text-lg leading-6 text-gray-600">
+        Cuidamos do seu veículo como ele merece.
+      </p>
     </div>
+    <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <!-- Serviço 1 -->
+      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
+          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/Accesories-Home-Page.jpg" alt="Accesories">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <h3 class="text-2xl font-semibold text-yellow-300">Accesories</h3>
+          </div>
+        </div>
+      </div>
+      <!-- Serviço 2 -->
+      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="100">
+        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
+          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/floor-mats.jpg" alt="Floor Mats">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <h3 class="text-2xl font-semibold text-yellow-300">Floor Mats</h3>
+          </div>
+        </div>
+      </div>
+      <!-- Serviço 3 -->
+      <div id="produtos" class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
+          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/MOTOR-OILS.jpg" alt="Motor Oils">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <h3 class="text-2xl font-semibold text-yellow-300">Motor Oils</h3>
+          </div>
+        </div>
+      </div>
+      <!-- Serviço 4 -->
+      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="300">
+        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
+          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/SEAT-COVERS.jpg" alt="Seat Covers">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <h3 class="text-2xl font-semibold text-yellow-300">Seat Covers</h3>
+          </div>
+        </div>
+      </div>
+      <!-- Serviço 5 -->
+      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="400">
+        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
+          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/steering-wheel-covers.jpg" alt="Steering Wheel Covers">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <h3 class="text-2xl font-semibold text-yellow-300">Steering Wheel Covers</h3>
+          </div>
+        </div>
+      </div>
+      <!-- Serviço 6 -->
+      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="500">
+        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
+          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/wheel-covers.jpg" alt="Wheel Covers">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <h3 class="text-2xl font-semibold text-yellow-300">Wheel Covers</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botão "Ver Mais" -->
+    <div class="mt-4 text-center">
+      <a href="#" class="inline-block px-6 py-2 text-sm font-semibold text-black bg-yellow-500 rounded-full hover:bg-yellow-600 hover:text-gray-200 duration-300 ease-in-out">
+        Ver mais
+      </a>
+    </div>
+  </div>
+</section>
+
   
+<!-- Botão Flutuante do WhatsApp -->
+<a 
+  href="https://wa.me/+244936174188" 
+  target="_blank" 
+  class="fixed bottom-6 sm:bottom-48 right-6 bg-gradient-to-r from-green-400 to-green-600 text-white rounded-full p-3 shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out flex items-center justify-center"
+  aria-label="Entre em contato pelo WhatsApp"
+>
+  <i class="fab fa-whatsapp fa-3x"></i>
+</a>
+
+  <div class="contact3 py-10 bg-gray-100">
+    <div class="text-center mb-4">
+      <h2 class="text-2xl font-extrabold text-gray-900">Entre em Contato</h2>
+      <p class="text-lg text-gray-600 mt-2">Estamos aqui para ajudar! Entre em contato através dos canais abaixo.</p>
+    </div>
     <div class="container mx-auto">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- Mapa -->
-        <div>
+        <div class="col-span-2 rounded-lg overflow-hidden shadow-lg">
           <iframe 
-            class="w-full h-[400px] md:h-[400px] rounded-lg shadow-lg" 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.836384589598!2d144.955431315316!3d-37.8172099797517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1f8fbcd%3A0x2e84f9fa6e06576!2sFederation%20Square!5e0!3m2!1sen!2sau!4v1614288268551!5m2!1sen!2sau" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.7771288309623!2d13.239007973901296!3d-8.8069971900646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f247a3f867f3%3A0x1eff9d86b2c98cf6!2sR.%20Maj.%20Kanhangulo%20139%2C%20Luanda!5e0!3m2!1spt-PT!2sao!4v1736222322281!5m2!1spt-PT!2sao" 
+            width="100%" 
+            height="350" 
+            style="border:0;" 
             allowfullscreen="" 
             loading="lazy" 
-            style="border: 0;">
+            referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
   
         <!-- Informações de Contato -->
-        <div class="space-y-6 md:pl-10">
-          <div class="flex items-start space-x-4">
-            <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon1.png" alt="Address Icon" class="w-12">
-            <div>
-              <h6 class="font-bold text-lg">Address</h6>
-              <p>601 Sherwood Ave.<br>San Bernandino</p>
-            </div>
-          </div>
+        <div id="contacto" class="bg-white p-8 rounded-lg shadow-lg">
+          <div class="space-y-6 text-gray-800">
+            <!-- Ícone do Facebook -->
+            <a href="https://www.facebook.com/profile.php?id=61560699365934" target="_blank" class="flex items-center space-x-3">
+              <i class="fab fa-facebook text-3xl text-gray-800"></i>
+              <span class="text-lg font-medium">ShopGal</span>
+            </a>
   
-          <div class="flex items-start space-x-4">
-            <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon2.png" alt="Phone Icon" class="w-12">
-            <div>
-              <h6 class="font-bold text-lg">Phone</h6>
-              <p>251 546 9442<br>630 446 8851</p>
-            </div>
-          </div>
+            <!-- Ícone de E-mail -->
+            <a href="mailto:shopgal.angola@yahoo.com" class="flex items-center space-x-3">
+              <i class="fas fa-envelope text-3xl text-gray-800"></i>
+              <span class="text-lg font-medium">shopgal.angola@yahoo.com</span>
+            </a>
   
-          <div class="flex items-start space-x-4">
-            <img src="https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/contact/icon3.png" alt="Email Icon" class="w-12">
-            <div>
-              <h6 class="font-bold text-lg">Email</h6>
-              <p>info@wrappixel.com<br>123@wrappixel.com</p>
-            </div>
+            <!-- Ícone de Localização -->
+            <a href="https://www.google.com/maps/place/ShopGal" target="_blank" class="flex items-center space-x-3">
+              <i class="fas fa-map-marker-alt text-3xl text-gray-800"></i>
+              <span class="text-lg font-medium">Rua Major Kanhangulo nº 139/141</span>
+            </a>
+  
+            <!-- Ícone de Telefone -->
+            <a href="tel:+244936174188" class="flex items-center space-x-3">
+              <i class="fas fa-phone-alt text-3xl text-gray-800"></i>
+              <span class="text-lg font-medium">+244 936 174 188</span>
+            </a>
           </div>
         </div>
       </div>
     </div>
   </div>
   
+
   <footer class="bg-gray-900 text-gray-300 py-10">
     <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- About Section -->
-      <div>
+      <div class="text-center md:text-left">
         <h3 class="text-lg font-bold mb-4 text-white">Sobre Nós</h3>
         <p class="text-sm">
           Somos uma empresa focada em oferecer soluções inovadoras e práticas para nossos clientes. 
           Entre em contato para mais informações.
         </p>
       </div>
-  
+    
       <!-- Quick Links Section -->
-      <div>
+      <div class="text-center md:text-left">
         <h3 class="text-lg font-bold mb-4 text-white">Links Rápidos</h3>
         <ul class="space-y-2">
-          <li><a href="#" class="hover:underline">Home</a></li>
-          <li><a href="#" class="hover:underline">Serviços</a></li>
-          <li><a href="#" class="hover:underline">Portfólio</a></li>
-          <li><a href="#" class="hover:underline">Contato</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#produtos" >Produtos</a></li>
+          <li><a href="#catalogo" >Catálogo</a></li>
+          <li><a href="#sobrenos" >Sobre nós</a></li>
+          <li><a href="#contacto" >Contato</a></li>
         </ul>
       </div>
-  
+    
       <!-- Contact Section -->
-      <div>
+      <div class="text-center md:text-left">
         <h3 class="text-lg font-bold mb-4 text-white">Contato</h3>
         <ul class="space-y-2">
-          <li><span class="font-medium">Endereço:</span> 123 Rua Exemplo, Cidade, País</li>
-          <li><span class="font-medium">Telefone:</span> +123 456 789</li>
-          <li><span class="font-medium">Email:</span> contato@exemplo.com</li>
+          <li><span class="font-medium">Endereço:</span> Rua Major Kanhangulo nº 139/141 - Ingombota,Luanda</li>
+          <li><span class="font-medium">Telefone:</span> +244 936174188</li>
+          <li><span class="font-medium">Email:</span> shopgal.angola@yahoo.com</li>
         </ul>
       </div>
     </div>
+    
   
    <!-- Social Media & Copyright -->
 <div class="mt-8 border-t border-gray-700 pt-6 text-center">
   
   <div class="flex justify-center space-x-6 mb-4">
-    <a href="#" class="text-yellow-300 hover:text-white" aria-label="Facebook">
+    <a href="https://www.facebook.com/profile.php?id=61560699365934" class="text-yellow-300 hover:text-white" aria-label="Facebook">
       <i class="fab fa-facebook-f"></i>
     </a>
   
-    <a href="#" class="text-yellow-300 hover:text-white" aria-label="Instagram">
+    <a href="https://wa.me/+244936174188" 
+    target="_blank" class="text-yellow-300 hover:text-white" aria-label="WhatsApp">
       <i class="fab fa-whatsapp"></i>
-    </a>
-  
-    <a href="#" class="text-yellow-300 hover:text-white" aria-label="LinkedIn">
-      <i class="fab fa-linkedin-in"></i>
     </a>
   
   </div>

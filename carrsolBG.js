@@ -17,3 +17,10 @@
           duration: 1000, // Duração da animação em milissegundos
              once: false,     // Executar apenas uma vez
          });
+
+         // Função para alternar a visibilidade do menu em dispositivos móveis
+// Função para alternar a visibilidade do menu em dispositivos móveis
+function toggleMenu() {
+  const menu = document.getElementById('mobile-menu');
+  menu.classList.toggle('open');
+}

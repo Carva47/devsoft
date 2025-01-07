@@ -58,3 +58,68 @@ a{
   background: -o-linear-gradient(left, #ff6a5b 0%, #ff4d7e 100%);
   background: linear-gradient(to right, #ff6a5b 0%, #ff4d7e 100%);
 }
+#carousel{
+  height: 580px;
+}
+
+header a {
+  color: #f3b60e; /* Cor do texto padrão */
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none; /* Remover underline */
+  transition: all 0.3s ease-in-out; /* Transição suave */
+}
+
+header a:hover {
+  color: white; /* Cor de destaque ao passar o mouse */
+  font-size: 18px; /* Aumentar o tamanho da fonte */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adicionar sombra ao texto */
+  transform: translateY(-3px); /* Levantar o link ligeiramente */
+  letter-spacing: 0.5px; /* Aumentar o espaçamento entre as letras */
+}
+
+/* Estilo do botão do menu hamburguer */
+button {
+  background-color: transparent; /* Fundo transparente */
+  border: 2px solid #fbbf24; /* Borda amarela */
+  border-radius: 0.375rem; /* Bordas arredondadas */
+  padding: 0.625rem; /* Espaçamento no botão */
+  color: #fbbf24; /* Cor do ícone de menu */
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #fbbf24; /* Cor de fundo amarela ao passar o cursor */
+  color: #1f2937; /* Cor escura para o texto e ícone */
+}
+
+/* Estilo do botão de fechar no menu (ícone de X) */
+#mobile-menu button {
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem;
+  color: #fbbf24;
+  font-size: 24px;
+}
+
+/* Estilo do menu aberto */
+#mobile-menu {
+  transition: all 0.3s ease-in-out;
+}
+
+#mobile-menu.open {
+  display: block;
+}
+
+#mobile-menu {
+  display: none;
+}
+
+
+/* Estilo para o header */
+header {
+  width: 100%; /* Ocupa 100% da largura da tela */
+  justify-content: space-between; /* Espaça os itens do header */
+  background-color: rgba(31, 41, 55, 0.8); /* Cor de fundo com transparência */
+  padding:0; /* Remove o padding para ocupar toda a tela */
+}
