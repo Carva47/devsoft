@@ -10,226 +10,243 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-
-
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <link rel="stylesheet" href="index.css">
+  
 </head>
 <body>
-      <div class="relative bg-white">
-        <!-- Header -->
-        <header class="bg-gray-800 bg-opacity-80 fixed top-0 left-0 right-0 z-50">
-          <nav class="flex items-center justify-between p-2 lg:px-8" aria-label="Global">
-            <div class="flex lg:flex-1">
-              <a href="index.html">
-                <img src="./assets/img/logo.png" alt="Logo" width="100" height="50">
-              </a>
+      <div class="min-h-screen bg-white">
+       <!-- HEADER -->
+       <header class="fixed bg-gray-900 bg-opacity-90 top-0 w-full z-50 shadow-md">
+        <nav class="container mx-auto flex justify-between  items-center py-2 px-8">  
+            <!-- LOGO -->
+            <a href="index.html" class="text-white text-2xl font-bold">
+                <img src="assets/img/shopgal logo.png" class="w-24" alt="logo">
+            </a>
+
+            <!-- MENU DESKTOP -->
+            <div class="hidden lg:flex space-x-6 items-center mx-auto py-3 ">
+                <a href="index.html" class="text-white hover:text-yellow-400 transition">Home</a>
+                <a href="produtos.html" class="text-white hover:text-yellow-400 transition">Produtos</a>
+                <a href="catalogo.html" class="text-white hover:text-yellow-400 transition">Catálogo</a>
+
+                <!-- DROPDOWN SOBRE NÓS -->
+                <div class="relative">
+                    <a id="sobreNosBtn" class="text-white flex items-center gap-1 pointer hover:text-yellow-400 transition">
+                        Sobre Nós ▼
+                    </a>
+                    <div id="dropdownSobreNos" class="hidden absolute z-50 top-10 left-0 w-44 bg-gray-800 text-white rounded-md shadow-lg">
+                        <a href="sobrenos.html" class="block px-4 py-2 hover:bg-yellow-500 transition">Quem somos</a>
+                        <a href="galeria.html" class="block px-4 py-2 hover:bg-yellow-500 transition">Galeria</a>
+                        <a href="historia.html" class="block px-4 py-2 hover:bg-yellow-500 transition">Boas-vindas</a>
+                        <a href="marcas.html" class="block px-4 py-2 hover:bg-yellow-500 transition">Marcas</a>
+                    </div>
+                </div>
+
+                <a href="#" class="text-white hover:text-yellow-400 transition">Contactos</a>
+                
             </div>
             
-            <!-- Botão de Menu Hamburguer (apenas em telas pequenas) -->
-            <div class="flex lg:hidden px-2">
-              <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-yellow-300 border-2 border-yellow-300" onclick="toggleMenu()">
-                <span class="sr-only">Open main menu</span>
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-              </button>
+            <!-- BOTÃO MENU MOBILE -->
+            <button id="menuBtn" class="lg:hidden text-yellow-400">
+                ☰
+            </button>
+        </nav>
+
+        <!-- MENU MOBILE -->
+        <div id="mobileMenu" class="z-100 hidden lg:hidden absolute left-0 w-full bg-gray-900 py-4 shadow-md flex flex-col items-center space-y-4">
+            <a href="index.html" class="text-white">Home</a>
+            <a href="produtos.html" class="text-white">Produtos</a>
+            <a href="catalogo.html" class="text-white">Catálogo</a>
+
+            <!-- DROPDOWN MOBILE -->
+            <div class="relative">
+                <a id="dropdownBtnMobile" class="text-white flex items-center gap-1">
+                    Sobre Nós ▼
+                </a>
+                <div id="dropdownMenuMobile" class="hidden w-44 bg-gray-800 text-white mt-2 rounded-md">
+                  <a href="sobrenos.html" class="block px-4 py-2 hover:bg-yellow-500">Quems Somos</a>  
+                  <a href="galeria.html" class="block px-4 py-2 hover:bg-yellow-500">Galeria</a>
+                    <a href="historia.html" class="block px-4 py-2 hover:bg-yellow-500">Boas-vindas</a>
+                    <a href="marcas.html" class="block px-4 py-2 hover:bg-yellow-500">Marcas</a>
+                </div>
             </div>
-        
-            <!-- Menu para telas grandes -->
-            <div class="hidden lg:flex lg:gap-x-12" id="menu">
-              <a href="index.html" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Home</a>
-              <a href="#produtos" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Produtos</a>
-              <a href="#catalogo" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Catálogo</a>
-              <a href="#sobrenos" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Sobre Nós</a>
-              <a href="#contacto" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Contactos</a>
-            </div>
-        
-            <!-- Link para "Fale Connosco" -->
-            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-              <a href="https://wa.me/+244936174188" 
-              target="_blank"  class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Fale Connosco<span aria-hidden="true">&rarr;</span></a>
-            </div>
-          </nav>
-        
-          <!-- Menu para telas pequenas (escondido inicialmente) -->
-          <div id="mobile-menu" class="lg:hidden fixed inset-0 z-50 bg-gray-800 bg-opacity-90 hidden">
-            <div class="flex flex-col items-center py-6 space-y-4">
-              <button class="self-end text-yellow-300 p-2" onclick="toggleMenu()">
-                <svg class="w-12 h-12 " fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-              <a href="index.html" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Home</a>
-              <a href="#produtos" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Produtos</a>
-              <a href="#catalogo" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Catálogo</a>
-              <a href="#sobrenos" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Sobre Nós</a>
-              <a href="#contacto" class="text-sm font-semibold text-yellow-300 hover:text-yellow-500">Contactos</a>
-              <a href="https://wa.me/+244936174188" target="_blank" 
-              class="text-lg font-semibold text-yellow-300 hover:text-yellow-500">Fale Connosco</a>
-            </div>
-          </div>
-        </header>
-        
-        <!-- Carrossel de Imagens -->
-        <div id="carousel" class="relative isolate overflow-hidden">
-          <!-- Imagens do carrossel -->
-          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-100" style="background-image: url('assets/img/WhatsApp\ Image\ 2025-01-07\ at\ 05.37.22.jpeg');" data-index="1"></div>
-          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-0" style="background-image: url('assets/img/WhatsApp\ Image\ 2025-01-07\ at\ 05.38.40.jpeg');" data-index="2"></div>
-          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-0" style="background-image: url('assets/img/WhatsApp\ Image\ 2025-01-07\ at\ 05.38.41\ \(1\).jpeg');" data-index="3"></div>
-          <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 opacity-0" style="background-image: url('assets/img/WhatsApp\ Image\ 2025-01-07\ at\ 05.38.41.jpeg');" data-index="4"></div>
-          <!-- Conteúdo principal -->
-          <div class="relative px-6 pt-14 lg:px-8 bg-gray-800 bg-opacity-60 h-full flex items-center justify-center">
-            <div class="text-center">
-              <h1 class="text-5xl text-white sm:text-7xl">ShopGal Oil & Gás</h1>
-              <p class="mt-8 text-lg font-medium text-gray-100 sm:text-xl">Uma Simples Maneira de chegar à América.</p>
-              <div class="mt-10 flex items-center justify-center gap-x-6">
-                <a href="#" class="rounded-md bg-yellow-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-yellow-600">Entrar em Contato</a>
-                <a href="#" class="text-sm font-semibold text-gray-200">SABER MAIS <span aria-hidden="true">→</span></a>
+
+            <a href="#" class="text-white">Contactos</a>
+            <a href="https://wa.me/+244936174188" class="text-yellow-400 border border-yellow-400 px-4 py-2 rounded-lg">Fale Conosco</a>
+        </div>
+    </header>
+    <section>
+     <!-- Carrossel -->
+     <div class="w-full mx-auto overflow-hidden"> 
+      <div class="swiper-container w-full h-[600px] shadow-lg overflow-hidden ">
+          <div class="swiper-wrapper">
+
+              <!-- Slide 1 -->
+              <div class="swiper-slide relative">
+                  <img src="assets/img/WhatsApp Image 2025-01-07 at 05.37.22.jpeg" class="w-full h-full object-cover brightness-75">
+                  <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                      <h2 class="text-3xl md:text-5xl font-extrabold text-yellow-400 animate-fade-in">
+                          Potência e Estilo
+                      </h2>
+                      <p class="text-base md:text-xl text-white mt-2 animate-slide-up">
+                          Experimente a verdadeira performance na estrada.
+                      </p>
+                  </div>
               </div>
-            </div>
+
+              <!-- Slide 2 -->
+              <div class="swiper-slide relative">
+                  <img src="assets/img/WhatsApp Image 2025-01-07 at 05.38.40.jpeg" class="w-full h-full object-cover brightness-75">
+                  <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                      <h2 class="text-3xl md:text-5xl font-extrabold text-yellow-400 animate-fade-in">
+                          Conforto e Segurança
+                      </h2>
+                      <p class="text-base md:text-xl text-white mt-2 animate-slide-up">
+                          Viaje com tecnologia de ponta e segurança reforçada.
+                      </p>
+                  </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="swiper-slide relative">
+                  <img src="assets/img/WhatsApp Image 2025-01-07 at 05.38.41.jpeg" class="w-full h-full object-cover brightness-75">
+                  <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                      <h2 class="text-3xl md:text-5xl font-extrabold text-yellow-400 animate-fade-in">
+                          Design Inovador
+                      </h2>
+                      <p class="text-base md:text-xl text-white mt-2 animate-slide-up">
+                          Linhas marcantes e aerodinâmica avançada.
+                      </p>
+                  </div>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="swiper-slide relative">
+                  <img src="assets/img/WhatsApp Image 2025-01-07 at 05.38.41 (1).jpeg" class="w-full h-full object-cover brightness-75">
+                  <div class="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+                      <h2 class="text-3xl md:text-5xl font-extrabold text-yellow-400 animate-fade-in">
+                          Desempenho Incrível
+                      </h2>
+                      <p class="text-base md:text-xl text-white mt-2 animate-slide-up">
+                          Uma máquina feita para quem ama dirigir.
+                      </p>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
 
-      <!-- Seção Sobre Nós -->
-<section id="sobrenos" class="bg-gradient-to-r from-gray-100 via-gray-50 to-gray-100 py-8">
-  <div class="max-w-6xl mx-auto px-6 lg:px-12">
-    <!-- Cabeçalho da Seção -->
-    <div class="text-center mb-2">
-      <h2 class="text-2xl font-extrabold text-gray-900">Sobre Nós</h2>
-      <p class="mt-6 text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-        A Shopgal Veículos oferece um pacote integrado de produtos e serviços, 
-        garantindo viaturas modernas, manutenção de qualidade e assistência técnica inovadora. 
-        Atuamos com base em valores sólidos, proporcionando excelência a nossos clientes.
-      </p>
-    </div>
-
-    <!-- Filosofia de Negócio -->
-    <div class="text-center mb-4">
-      <p class="text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
-        Nosso objetivo é tornar-nos líderes no setor automóvel em Angola, baseando nossa filosofia de negócios em três pilares fundamentais:
-      </p>
-    </div>
-
-    <!-- Cards de Missão, Visão e Valores -->
-    <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Missão -->
-      <div class="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="100">
-        <div class="flex items-center justify-center mb-2">
-          <i class="fas fa-bullseye text-3xl text-blue-500"></i>
-        </div>
-        <h3 class="text-xl font-bold text-center text-gray-800 mb-4">Nossa Missão</h3>
-        <p class="text-gray-600 leading-relaxed">
-          Valorizar clientes, parceiros e funcionários, proporcionando experiências que superem expectativas, com elevados padrões de serviço.
-        </p>
-      </div>
-
-      <!-- Visão -->
-      <div class="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="200">
-        <div class="flex items-center justify-center mb-2">
-          <i class="fas fa-eye text-3xl text-green-500"></i>
-        </div>
-        <h3 class="text-xl font-bold text-center text-gray-800 mb-4">Nossa Visão</h3>
-        <p class="text-gray-600 leading-relaxed">
-          Ser reconhecidos como líderes em soluções automotivas, com um polo das melhores marcas e modelos em Angola.
-        </p>
-      </div>
-
-      <!-- Valores -->
-      <div class="bg-white shadow-lg rounded-lg p-4 hover:shadow-xl transition-shadow duration-300" data-aos="fade-up" data-aos-delay="300">
-        <div class="flex items-center justify-center mb-2">
-          <i class="fas fa-handshake text-3xl text-yellow-500"></i>
-        </div>
-        <h3 class="text-xl font-bold text-center text-gray-800 mb-4">Nossos Valores</h3>
-        <p class="text-gray-600 leading-relaxed">
-          Negócios orientados pela segurança, qualidade, inovação e confiabilidade, sempre buscando a satisfação do cliente.
-        </p>
-      </div>
-    </div>
   </div>
 </section>
 
-<!-- Seção de Serviços -->
+<!-- Seção de marcas -->
+<section class="mt-6 py-6">
+  <div class="container mx-auto items-center flex justify-center gap-8">
+    <img src="assets/img/Captura de ecrã de 2025-03-02 21-03-01.png" alt="Marca 1" class="h-16 w-24 hover:scale-110 transition-transform duration-300">
+    <img src="assets/img/Captura de ecrã de 2025-03-02 20-57-31.png" alt="Marca 2" class="h-16 hover:scale-110 transition-transform duration-300">
+    <img src="assets/img/Captura de ecrã de 2025-03-02 21-00-37.png" alt="Marca 3" class="h-16 w-24 hover:scale-110 transition-transform duration-300">
+    <img src="assets/img/Captura de ecrã de 2025-03-02 20-52-37.png" alt="Marca 4" class="h-16 w-24 hover:scale-110 transition-transform duration-300">
+  </div>
+</section>
+
+<!-- Seção de Produtos -->
 <section class="bg-gray-50 py-12" id="services">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="text-center mb-12">
       <h2 class="text-2xl font-extrabold text-gray-900">Nossos Produtos</h2>
       <p class="mt-4 text-lg leading-6 text-gray-600">
-        Cuidamos do seu veículo como ele merece.
+        Cuidamos do seu veículo com qualidade e excelência.
       </p>
     </div>
+
     <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      <!-- Serviço 1 -->
+      <!-- Produto 1 -->
       <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="100">
-        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
-          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/Accesories-Home-Page.jpg" alt="Accesories">
+        <div class="relative">
+          <img class="w-full h-64 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" 
+               src="https://herreroandsons.com/wp-content/uploads/2024/05/Accesories-Home-Page.jpg" 
+               alt="Acessórios">
           <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <h3 class="text-2xl font-semibold text-yellow-300">Accesories</h3>
+            <h3 class="text-2xl font-semibold text-yellow-300">Acessórios</h3>
           </div>
         </div>
       </div>
-      <!-- Serviço 2 -->
-      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="100">
-        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
-          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/floor-mats.jpg" alt="Floor Mats">
+
+      <!-- Produto 2 -->
+      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="150">
+        <div class="relative">
+          <img class="w-full h-64 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" 
+               src="https://herreroandsons.com/wp-content/uploads/2024/05/floor-mats.jpg" 
+               alt="Tapetes">
           <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <h3 class="text-2xl font-semibold text-yellow-300">Floor Mats</h3>
+            <h3 class="text-2xl font-semibold text-yellow-300">Tapetes</h3>
           </div>
         </div>
       </div>
-      <!-- Serviço 3 -->
-      <div id="produtos" class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="200">
-        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
-          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/MOTOR-OILS.jpg" alt="Motor Oils">
+
+      <!-- Produto 3 -->
+      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="200">
+        <div class="relative">
+          <img class="w-full h-64 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" 
+               src="https://herreroandsons.com/wp-content/uploads/2024/05/MOTOR-OILS.jpg" 
+               alt="Óleos de Motor">
           <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <h3 class="text-2xl font-semibold text-yellow-300">Motor Oils</h3>
+            <h3 class="text-2xl font-semibold text-yellow-300">Óleos de Motor</h3>
           </div>
         </div>
       </div>
-      <!-- Serviço 4 -->
+
+      <!-- Produto 4 -->
+      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="250">
+        <div class="relative">
+          <img class="w-full h-64 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" 
+               src="https://herreroandsons.com/wp-content/uploads/2024/05/SEAT-COVERS.jpg" 
+               alt="Capas de Assento">
+          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+            <h3 class="text-2xl font-semibold text-yellow-300">Capas de Assento</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produto 5 -->
       <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="300">
-        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
-          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/SEAT-COVERS.jpg" alt="Seat Covers">
+        <div class="relative">
+          <img class="w-full h-64 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" 
+               src="https://herreroandsons.com/wp-content/uploads/2024/05/steering-wheel-covers.jpg" 
+               alt="Capas de Volante">
           <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <h3 class="text-2xl font-semibold text-yellow-300">Seat Covers</h3>
+            <h3 class="text-2xl font-semibold text-yellow-300">Capas de Volante</h3>
           </div>
         </div>
       </div>
-      <!-- Serviço 5 -->
-      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="400">
-        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
-          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/steering-wheel-covers.jpg" alt="Steering Wheel Covers">
+
+      <!-- Produto 6 -->
+      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="350">
+        <div class="relative">
+          <img class="w-full h-64 object-cover transition-transform duration-500 ease-in-out group-hover:scale-110" 
+               src="https://herreroandsons.com/wp-content/uploads/2024/05/wheel-covers.jpg" 
+               alt="Calotas">
           <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <h3 class="text-2xl font-semibold text-yellow-300">Steering Wheel Covers</h3>
-          </div>
-        </div>
-      </div>
-      <!-- Serviço 6 -->
-      <div class="bg-gray-800 shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300 ease-in-out group" data-aos="fade-up" data-aos-delay="500">
-        <div class="relative group-hover:scale-110 transition-all duration-500 ease-in-out">
-          <img class="w-full h-64 object-cover transition-all duration-500 ease-in-out group-hover:translate-y-8" src="https://herreroandsons.com/wp-content/uploads/2024/05/wheel-covers.jpg" alt="Wheel Covers">
-          <div class="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-            <h3 class="text-2xl font-semibold text-yellow-300">Wheel Covers</h3>
+            <h3 class="text-2xl font-semibold text-yellow-300">Calotas</h3>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Botão "Ver Mais" -->
-    <div class="mt-4 text-center">
-      <a href="#" class="inline-block px-6 py-2 text-sm font-semibold text-black bg-yellow-500 rounded-full hover:bg-yellow-600 hover:text-gray-200 duration-300 ease-in-out">
-        Ver mais
+    <div class="mt-6 text-center">
+      <a href="produtos.html" class="inline-block px-6 py-3 text-lg font-semibold text-white bg-yellow-500 rounded-lg shadow-md hover:bg-yellow-600 transition duration-300">
+        Ver mais produtos
       </a>
     </div>
   </div>
 </section>
 
-  
+
 <!-- Botão Flutuante do WhatsApp -->
 <a 
   href="https://wa.me/+244936174188" 
   target="_blank" 
-  class="fixed bottom-6 sm:bottom-48 right-6 bg-gradient-to-r from-green-400 to-green-600 text-white rounded-full p-3 shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out flex items-center justify-center"
+  class="fixed bottom-6 sm:bottom-42 right-6 bg-gradient-to-r from-green-400 to-green-600 text-white rounded-full p-3 shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out flex items-center justify-center"
   aria-label="Entre em contato pelo WhatsApp"
 >
   <i class="fab fa-whatsapp fa-3x"></i>
@@ -346,6 +363,7 @@
   
   <!-- Script para animações de scroll -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="carrsolBG.js"> </script>
 </body>
 </html>

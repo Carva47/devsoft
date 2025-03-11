@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShopGal Oil & Gás</title>
+  <!-- Link para TailwindCSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="index.css">
+  
+</head>
+<body>
+      <div class="min-h-screen bg-white">
+       <!-- HEADER -->
+       <header class="fixed bg-gray-900 bg-opacity-90 top-0 w-full z-50 shadow-md">
+        <nav class="container mx-auto flex justify-between  items-center py-2 px-8">  
+            <!-- LOGO -->
+            <a href="index.html" class="text-white text-2xl font-bold">
+                <img src="assets/img/shopgal logo.png" class="w-24" alt="logo">
+            </a>
+
+            <!-- MENU DESKTOP -->
+            <div class="hidden lg:flex space-x-6 items-center mx-auto py-3 ">
+                <a href="index.html" class="text-white hover:text-yellow-400 transition">Home</a>
+                <a href="produtos.html" class="text-white hover:text-yellow-400 transition">Produtos</a>
+                <a href="catalogo.html" class="text-white hover:text-yellow-400 transition">Catálogo</a>
+
+                <!-- DROPDOWN SOBRE NÓS -->
+                <div class="relative">
+                    <a id="sobreNosBtn" class="text-white flex items-center gap-1 pointer hover:text-yellow-400 transition">
+                        Sobre Nós ▼
+                    </a>
+                    <div id="dropdownSobreNos" class="hidden absolute z-50 top-10 left-0 w-44 bg-gray-800 text-white rounded-md shadow-lg">
+                        <a href="sobrenos.html" class="block px-4 py-2 hover:bg-yellow-500 transition">Quem somos</a>
+                        <a href="galeria.html" class="block px-4 py-2 hover:bg-yellow-500 transition">Galeria</a>
+                        <a href="historia.html" class="block px-4 py-2 hover:bg-yellow-500 transition">Boas-vindas</a>
+                        <a href="marcas.html" class="block px-4 py-2 hover:bg-yellow-500 transition">Marcas</a>
+                    </div>
+                </div>
+
+                <a href="#" class="text-white hover:text-yellow-400 transition">Contactos</a>
+                
+            </div>
+            
+            <!-- BOTÃO MENU MOBILE -->
+            <button id="menuBtn" class="lg:hidden text-yellow-400">
+                ☰
+            </button>
+        </nav>
+
+        <!-- MENU MOBILE -->
+        <div id="mobileMenu" class="z-100 hidden lg:hidden absolute left-0 w-full bg-gray-900 py-4 shadow-md flex flex-col items-center space-y-4">
+            <a href="index.html" class="text-white">Home</a>
+            <a href="produtos.html" class="text-white">Produtos</a>
+            <a href="catalogo.html" class="text-white">Catálogo</a>
+
+            <!-- DROPDOWN MOBILE -->
+            <div class="relative">
+                <a id="dropdownBtnMobile" class="text-white flex items-center gap-1">
+                    Sobre Nós ▼
+                </a>
+                <div id="dropdownMenuMobile" class="hidden w-44 bg-gray-800 text-white mt-2 rounded-md">
+                  <a href="sobrenos.html" class="block px-4 py-2 hover:bg-yellow-500">Quems Somos</a>  
+                  <a href="galeria.html" class="block px-4 py-2 hover:bg-yellow-500">Galeria</a>
+                    <a href="historia.html" class="block px-4 py-2 hover:bg-yellow-500">Boas-vindas</a>
+                    <a href="marcas.html" class="block px-4 py-2 hover:bg-yellow-500">Marcas</a>
+                </div>
+            </div>
+
+            <a href="#" class="text-white">Contactos</a>
+            <a href="https://wa.me/+244936174188" class="text-yellow-400 border border-yellow-400 px-4 py-2 rounded-lg">Fale Conosco</a>
+        </div>
+    </header>
+    <section>
+    <section class="bg-gray-100 text-gray-900 -mt-2">
+        <!-- Section Principal 1 -->
+        <section class="bg-black mt-20">
+                <img src="assets/img/header1.png" alt="" class="mx-auto cover">        
+        </section>
+    
+        <!-- Cards -->
+        <section class="max-w-6xl mx-auto py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+            
+            <!-- Card 1 -->
+            <div class="rounded-lg  p-6 text-center">
+                <img src="assets/img/pd1.png" alt="Purificadores" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">PURIFICADORES</h3>
+                <p class=" text-gray-700 text-sm mt-2">5W-30 Óleo sintético para motor que proporciona excelente proteção para veículos novos e antigos, evitando a formação de depósitos, ferrugem, corrosão e ajudando a aumentar a vida útil do motor, mesmo em condições severas de operação.</p>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class=" rounded-lg  p-6 text-center">
+                <img src="assets/img/pd2.png" alt="Aroma Pulverizador" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">AROMA PULVERIZADOR</h3>
+                <p class="text-gray-700 text-sm mt-2">Lubrifica as peças móveis do motor, evitando o atrito e o desgaste, protege o motor contra corrosão e oxidação, remove o calor do motor e limpa o motor.
+                    .</p>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class=" rounded-lg  p-6 text-center">
+                <img src="assets/img/pd4.png" alt="Vent Clip" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">VENT CLIP</h3>
+                <p class="text-gray-700 text-sm mt-2">115w-40 óleo de motor super resistente diesel e gasolina ci-4 plus/sl (946 ml).</p>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class=" rounded-lg p-6 text-center">
+                <img src="assets/img/pd3.png" alt="Clip-on" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">CLIP-ON GIRATÓRIO</h3>
+                <p class="text-gray-700 text-sm mt-2">ATF - fluido de transmissão automática (946 ml).</p>
+            </div>
+            <div><p>Clica aqui para falar connosco <a href="#" class="text-blue-500 font-bold">Aqui!</a></p></div>
+        </section>
+    </section>
+
+    <section class="bg-gray-100 text-gray-900">
+        <!-- Section Principal 2 -->
+        <section class="bg-black">
+                <img src="assets/img/header2.png" alt="" class="mx-auto cover">        
+        </section>
+    
+        <!-- Cards -->
+        <section class="max-w-6xl mx-auto py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+            
+              <!-- Card 1 -->
+              <div class="rounded-lg  p-6 text-center">
+                <img src="assets/img/pd1.png" alt="Purificadores" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">PURIFICADORES</h3>
+                <p class=" text-gray-700 text-sm mt-2">5W-30 Óleo sintético para motor que proporciona excelente proteção para veículos novos e antigos, evitando a formação de depósitos, ferrugem, corrosão e ajudando a aumentar a vida útil do motor, mesmo em condições severas de operação.</p>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class=" rounded-lg  p-6 text-center">
+                <img src="assets/img/pd2.png" alt="Aroma Pulverizador" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">AROMA PULVERIZADOR</h3>
+                <p class="text-gray-700 text-sm mt-2">Lubrifica as peças móveis do motor, evitando o atrito e o desgaste, protege o motor contra corrosão e oxidação, remove o calor do motor e limpa o motor.
+                    .</p>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class=" rounded-lg  p-6 text-center">
+                <img src="assets/img/pd4.png" alt="Vent Clip" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">VENT CLIP</h3>
+                <p class="text-gray-700 text-sm mt-2">115w-40 óleo de motor super resistente diesel e gasolina ci-4 plus/sl (946 ml).</p>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class=" rounded-lg p-6 text-center">
+                <img src="assets/img/pd3.png" alt="Clip-on" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">CLIP-ON GIRATÓRIO</h3>
+                <p class="text-gray-700 text-sm mt-2">ATF - fluido de transmissão automática (946 ml).</p>
+            </div>
+            <div><p>Clica aqui para falar connosco <a href="#" class="text-blue-500 font-bold">Aqui!</a></p></div>
+        </section>
+    </section>
+    <section class="bg-gray-100 text-gray-900">
+        <!-- Section Principal 3 -->
+        <section class="bg-black ">
+                <img src="assets/img/header45.png" alt="" class="mx-auto cover">        
+        </section>
+    
+        <!-- Cards -->
+        <section class="max-w-6xl mx-auto py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+            
+             <!-- Card 1 -->
+             <div class="rounded-lg  p-6 text-center">
+                <img src="assets/img/pd1.png" alt="Purificadores" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">PURIFICADORES</h3>
+                <p class=" text-gray-700 text-sm mt-2">5W-30 Óleo sintético para motor que proporciona excelente proteção para veículos novos e antigos, evitando a formação de depósitos, ferrugem, corrosão e ajudando a aumentar a vida útil do motor, mesmo em condições severas de operação.</p>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class=" rounded-lg  p-6 text-center">
+                <img src="assets/img/pd2.png" alt="Aroma Pulverizador" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">AROMA PULVERIZADOR</h3>
+                <p class="text-gray-700 text-sm mt-2">Lubrifica as peças móveis do motor, evitando o atrito e o desgaste, protege o motor contra corrosão e oxidação, remove o calor do motor e limpa o motor.
+                    .</p>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class=" rounded-lg  p-6 text-center">
+                <img src="assets/img/pd4.png" alt="Vent Clip" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">VENT CLIP</h3>
+                <p class="text-gray-700 text-sm mt-2">115w-40 óleo de motor super resistente diesel e gasolina ci-4 plus/sl (946 ml).</p>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class=" rounded-lg p-6 text-center">
+                <img src="assets/img/pd3.png" alt="Clip-on" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">CLIP-ON GIRATÓRIO</h3>
+                <p class="text-gray-700 text-sm mt-2">ATF - fluido de transmissão automática (946 ml).</p>
+            </div>
+            <div><p>Clica aqui para falar connosco <a href="#" class="text-blue-500 font-bold">Aqui!</a></p></div>
+        </section>
+    </section>
+
+    <section class="bg-gray-100 text-gray-900">
+        <!-- Section Principal 4 -->
+        <section class="bg-black">
+                <img src="assets/img/header45.png" alt="" class="mx-auto cover">        
+        </section>
+    
+        <!-- Cards -->
+        <section class="max-w-6xl mx-auto py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+            
+              <!-- Card 1 -->
+            <div class="rounded-lg  p-6 text-center">
+                <img src="assets/img/pd1.png" alt="Purificadores" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">PURIFICADORES</h3>
+                <p class=" text-gray-700 text-sm mt-2">5W-30 Óleo sintético para motor que proporciona excelente proteção para veículos novos e antigos, evitando a formação de depósitos, ferrugem, corrosão e ajudando a aumentar a vida útil do motor, mesmo em condições severas de operação.</p>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class=" rounded-lg  p-6 text-center">
+                <img src="assets/img/pd2.png" alt="Aroma Pulverizador" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">AROMA PULVERIZADOR</h3>
+                <p class="text-gray-700 text-sm mt-2">Lubrifica as peças móveis do motor, evitando o atrito e o desgaste, protege o motor contra corrosão e oxidação, remove o calor do motor e limpa o motor.
+                    .</p>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class=" rounded-lg  p-6 text-center">
+                <img src="assets/img/pd4.png" alt="Vent Clip" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">VENT CLIP</h3>
+                <p class="text-gray-700 text-sm mt-2">115w-40 óleo de motor super resistente diesel e gasolina ci-4 plus/sl (946 ml).</p>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class=" rounded-lg p-6 text-center">
+                <img src="assets/img/pd3.png" alt="Clip-on" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">CLIP-ON GIRATÓRIO</h3>
+                <p class="text-gray-700 text-sm mt-2">ATF - fluido de transmissão automática (946 ml).</p>
+            </div>
+            <div><p>Clica aqui para falar connosco <a href="#" class="text-blue-500 font-bold">Aqui!</a></p></div>
+        </section>
+    </section>
+
+    <section class="bg-gray-100 text-gray-900">
+        <!-- Section Principal 5 -->
+        <section class="bg-black">
+                <img src="assets/img/header5.png" alt="" class="mx-auto cover">        
+        </section>
+    
+        <!-- Cards -->
+        <section class="max-w-6xl mx-auto py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+            
+              <!-- Card 1 -->
+            <div class="rounded-lg  p-6 text-center">
+                <img src="assets/img/pd1.png" alt="Purificadores" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">PURIFICADORES</h3>
+                <p class=" text-gray-700 text-sm mt-2">5W-30 Óleo sintético para motor que proporciona excelente proteção para veículos novos e antigos, evitando a formação de depósitos, ferrugem, corrosão e ajudando a aumentar a vida útil do motor, mesmo em condições severas de operação.</p>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class=" rounded-lg  p-6 text-center">
+                <img src="assets/img/pd2.png" alt="Aroma Pulverizador" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">AROMA PULVERIZADOR</h3>
+                <p class="text-gray-700 text-sm mt-2">Lubrifica as peças móveis do motor, evitando o atrito e o desgaste, protege o motor contra corrosão e oxidação, remove o calor do motor e limpa o motor.
+                    .</p>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class=" rounded-lg  p-6 text-center">
+                <img src="assets/img/pd4.png" alt="Vent Clip" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">VENT CLIP</h3>
+                <p class="text-gray-700 text-sm mt-2">115w-40 óleo de motor super resistente diesel e gasolina ci-4 plus/sl (946 ml).</p>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class=" rounded-lg p-6 text-center">
+                <img src="assets/img/pd3.png" alt="Clip-on" class="mx-auto mb-4 w-24">
+                <h3 class="text-sm font-bold bg-yellow-500 py-2 rounded-full text-gray-800">CLIP-ON GIRATÓRIO</h3>
+                <p class="text-gray-700 text-sm mt-2">ATF - fluido de transmissão automática (946 ml).</p>
+            </div>
+            <div><p>Clica aqui para falar connosco <a href="#" class="text-blue-500 font-bold">Aqui!</a></p></div>
+        </section>
+    </section>
+
+    <section class="bg-gray-100 text-gray-900">
+        <!-- Section Principal 6 -->
+        <section class="bg-black">
+                <img src="assets/img/header6.png" alt="" class="mx-auto cover">        
+        </section>
+    
+        <!-- Cards -->
+        <section class="max-w-6xl mx-auto py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+            
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <img src="assets/img/shop/purificadores.jpg" alt="Purificadores" class="mx-auto mb-4 w-24">
+                <h3 class="text-lg font-bold text-orange-500">PURIFICADORES</h3>
+                <p class="text-gray-600 mt-2">Proporciona uma sensação de frescor e bem-estar. Ajuda a neutralizar odores desagradáveis.</p>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <img src="assets/img/shop/aroma_pulverizador.jpg" alt="Aroma Pulverizador" class="mx-auto mb-4 w-24">
+                <h3 class="text-lg font-bold text-orange-500">AROMA PULVERIZADOR</h3>
+                <p class="text-gray-600 mt-2">Perfuma o interior do veículo, proporcionando uma sensação agradável e neutralizando odores de cigarro e mofo.</p>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <img src="assets/img/shop/vent_clip.jpg" alt="Vent Clip" class="mx-auto mb-4 w-24">
+                <h3 class="text-lg font-bold text-orange-500">VENT CLIP</h3>
+                <p class="text-gray-600 mt-2">Se conecta à ventilação do carro e possui ajuste de intensidade para fragrância por mais de 45 dias.</p>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <img src="assets/img/shop/clip_on.jpg" alt="Clip-on" class="mx-auto mb-4 w-24">
+                <h3 class="text-lg font-bold text-orange-500">CLIP-ON GIRATÓRIO</h3>
+                <p class="text-gray-600 mt-2">Brisa fresca, baunilha, frutas tropicais e mais opções. Fixação prática com ação giratória.</p>
+            </div>
+            <div><p>Clica aqui para falar connosco <a href="#" class="text-blue-500 font-bold">Aqui!</a></p></div>
+        </section>
+    </section>
+    <section class="bg-gray-100 text-gray-900">
+        <!-- Section Principal 7 -->
+        <section class="bg-black">
+                <img src="assets/img/header7.png" alt="" class="mx-auto cover">        
+        </section>
+    
+        <!-- Cards -->
+        <section class="max-w-6xl mx-auto py-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-4">
+            
+            <!-- Card 1 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <img src="assets/img/shop/purificadores.jpg" alt="Purificadores" class="mx-auto mb-4 w-24">
+                <h3 class="text-lg font-bold text-orange-500">PURIFICADORES</h3>
+                <p class="text-gray-600 mt-2">Proporciona uma sensação de frescor e bem-estar. Ajuda a neutralizar odores desagradáveis.</p>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <img src="assets/img/shop/aroma_pulverizador.jpg" alt="Aroma Pulverizador" class="mx-auto mb-4 w-24">
+                <h3 class="text-lg font-bold text-orange-500">AROMA PULVERIZADOR</h3>
+                <p class="text-gray-600 mt-2">Perfuma o interior do veículo, proporcionando uma sensação agradável e neutralizando odores de cigarro e mofo.</p>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <img src="assets/img/shop/vent_clip.jpg" alt="Vent Clip" class="mx-auto mb-4 w-24">
+                <h3 class="text-lg font-bold text-orange-500">VENT CLIP</h3>
+                <p class="text-gray-600 mt-2">Se conecta à ventilação do carro e possui ajuste de intensidade para fragrância por mais de 45 dias.</p>
+            </div>
+    
+            <!-- Card 4 -->
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                <img src="assets/img/shop/clip_on.jpg" alt="Clip-on" class="mx-auto mb-4 w-24">
+                <h3 class="text-lg font-bold text-orange-500">CLIP-ON GIRATÓRIO</h3>
+                <p class="text-gray-600 mt-2">Brisa fresca, baunilha, frutas tropicais e mais opções. Fixação prática com ação giratória.</p>
+            </div>
+            <div><p>Clica aqui para falar connosco <a href="#" class="text-blue-500 font-bold">Aqui!</a></p></div>
+        </section>
+    </section>
+   
+</section>
+<!-- Botão Flutuante do WhatsApp -->
+<a 
+  href="https://wa.me/+244936174188" 
+  target="_blank" 
+  class="fixed bottom-6 sm:bottom-42 right-6 bg-gradient-to-r from-green-400 to-green-600 text-white rounded-full p-3 shadow-lg hover:scale-105 hover:shadow-xl transition-transform duration-300 ease-in-out flex items-center justify-center"
+  aria-label="Entre em contato pelo WhatsApp"
+>
+  <i class="fab fa-whatsapp fa-3x"></i>
+</a>
+
+  <div class="contact3 py-10 bg-gray-100">
+    <div class="text-center mb-4">
+      <h2 class="text-2xl font-extrabold text-gray-900">Entre em Contato</h2>
+      <p class="text-lg text-gray-600 mt-2">Estamos aqui para ajudar! Entre em contato através dos canais abaixo.</p>
+    </div>
+    <div class="container mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Mapa -->
+        <div class="col-span-2 rounded-lg overflow-hidden shadow-lg">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3942.7771288309623!2d13.239007973901296!3d-8.8069971900646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1a51f247a3f867f3%3A0x1eff9d86b2c98cf6!2sR.%20Maj.%20Kanhangulo%20139%2C%20Luanda!5e0!3m2!1spt-PT!2sao!4v1736222322281!5m2!1spt-PT!2sao" 
+            width="100%" 
+            height="350" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+  
+        <!-- Informações de Contato -->
+        <div id="contacto" class="bg-white p-8 rounded-lg shadow-lg">
+          <div class="space-y-6 text-gray-800">
+            <!-- Ícone do Facebook -->
+            <a href="https://www.facebook.com/profile.php?id=61560699365934" target="_blank" class="flex items-center space-x-3">
+              <i class="fab fa-facebook text-3xl text-gray-800"></i>
+              <span class="text-lg font-medium">ShopGal</span>
+            </a>
+  
+            <!-- Ícone de E-mail -->
+            <a href="mailto:shopgal.angola@yahoo.com" class="flex items-center space-x-3">
+              <i class="fas fa-envelope text-3xl text-gray-800"></i>
+              <span class="text-lg font-medium">shopgal.angola@yahoo.com</span>
+            </a>
+  
+            <!-- Ícone de Localização -->
+            <a href="https://www.google.com/maps/place/ShopGal" target="_blank" class="flex items-center space-x-3">
+              <i class="fas fa-map-marker-alt text-3xl text-gray-800"></i>
+              <span class="text-lg font-medium">Rua Major Kanhangulo nº 139/141</span>
+            </a>
+  
+            <!-- Ícone de Telefone -->
+            <a href="tel:+244936174188" class="flex items-center space-x-3">
+              <i class="fas fa-phone-alt text-3xl text-gray-800"></i>
+              <span class="text-lg font-medium">+244 936 174 188</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <footer class="bg-gray-900 text-gray-300 py-10">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- About Section -->
+      <div class="text-center md:text-left">
+        <h3 class="text-lg font-bold mb-4 text-white">Sobre Nós</h3>
+        <p class="text-sm">
+          Somos uma empresa focada em oferecer soluções inovadoras e práticas para nossos clientes. 
+          Entre em contato para mais informações.
+        </p>
+      </div>
+    
+      <!-- Quick Links Section -->
+      <div class="text-center md:text-left">
+        <h3 class="text-lg font-bold mb-4 text-white">Links Rápidos</h3>
+        <ul class="space-y-2">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#produtos" >Produtos</a></li>
+          <li><a href="#catalogo" >Catálogo</a></li>
+          <li><a href="#sobrenos" >Sobre nós</a></li>
+          <li><a href="#contacto" >Contato</a></li>
+        </ul>
+      </div>
+    
+      <!-- Contact Section -->
+      <div class="text-center md:text-left">
+        <h3 class="text-lg font-bold mb-4 text-white">Contato</h3>
+        <ul class="space-y-2">
+          <li><span class="font-medium">Endereço:</span> Rua Major Kanhangulo nº 139/141 - Ingombota,Luanda</li>
+          <li><span class="font-medium">Telefone:</span> +244 936174188</li>
+          <li><span class="font-medium">Email:</span> shopgal.angola@yahoo.com</li>
+        </ul>
+      </div>
+    </div>
+    
+  
+   <!-- Social Media & Copyright -->
+<div class="mt-8 border-t border-gray-700 pt-6 text-center">
+  
+  <div class="flex justify-center space-x-6 mb-4">
+    <a href="https://www.facebook.com/profile.php?id=61560699365934" class="text-yellow-300 hover:text-white" aria-label="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+  
+    <a href="https://wa.me/+244936174188" 
+    target="_blank" class="text-yellow-300 hover:text-white" aria-label="WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  
+  </div>
+  <p class="text-sm text-gray-500">
+    &copy; 2025 shopgal. Todos os direitos reservados.
+  </p>
+</div>
+
+  </footer>
+  
+  <!-- Script para animações de scroll -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="carrsolBG.js"> </script>
+</body>
+</html>

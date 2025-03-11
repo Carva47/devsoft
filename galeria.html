@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História da Empresa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+
+    <style>
+        /* Estilo moderno para hover das imagens */
+        .gallery img {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        /* Efeito de fade-in para o modal */
+        .modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+    </style>
+
+</head>
+<body>
+     <!-- HEADER -->
+     <header class="fixed bg-gray-900 bg-opacity-90 top-0 w-full z-50 shadow-md">
+      <nav class="container mx-auto flex justify-between  items-center py-2 px-8">  
+          <!-- LOGO -->
+          <a href="index.html" class="text-white text-2xl font-bold">
+              <img src="assets/img/shopgal logo.png" class="w-24" alt="logo">
+          </a>
+          <!-- MENU DESKTOP -->
+          <div class="hidden lg:flex space-x-6 items-center mx-auto py-3 ">
+              <a href="index.html" class="text-white hover:text-yellow-400 transition">Home</a>
+              <a href="produtos.html" class="text-white hover:text-yellow-400 transition">Produtos</a>
+              <a href="catalogo.html" class="text-white hover:text-yellow-400 transition">Catálogo</a>
+
+              <!-- DROPDOWN SOBRE NÓS -->
+              <div class="relative">
+                  <a id="sobreNosBtn" class="text-white flex items-center gap-1 hover:text-yellow-400 transition">
+                      Sobre Nós ▼
+                  </a>
+                  <div id="dropdownSobreNos" class="hidden absolute top-10 left-0 w-44 bg-gray-800 text-white rounded-md shadow-lg">
+                     <a href="sobrenos.html" class="block px-4 py-2 hover:bg-yellow-500 transition">Quem somos</a>
+                    <a href="historia.html" class="block px-4 py-2 hover:bg-yellow-500 transition">Boas-vindas</a>              
+                      <a href="marcas.html" class="block px-4 py-2 hover:bg-yellow-500 transition">Marcas</a>
+                  </div>
+              </div>
+              <a href="#" class="text-white hover:text-yellow-400 transition">Contactos</a>             
+          </div>
+
+          <!-- BOTÃO MENU MOBILE -->
+          <button id="menuBtn" class="lg:hidden text-yellow-400">
+              ☰
+          </button>
+      </nav>
+
+      <!-- MENU MOBILE -->
+      <div id="mobileMenu" class="hidden lg:hidden absolute top-16 left-0 w-full bg-gray-900 py-4 shadow-md flex flex-col items-center space-y-4">
+          <a href="index.html" class="text-white">Home</a>
+          <a href="produtos.html" class="text-white">Produtos</a>
+          <a href="catalogo.html" class="text-white">Catálogo</a>
+
+          <!-- DROPDOWN MOBILE -->
+          <div class="relative">
+              <a id="dropdownBtnMobile" class="text-white flex items-center gap-1">
+                  Sobre Nós ▼
+              </a>
+              <div id="dropdownMenuMobile" class="hidden w-44 bg-gray-800 text-white mt-2 rounded-md">
+                  <a href="sobrenos.html" class="block px-4 py-2 hover:bg-yellow-500">Quems Somos</a> 
+                  <a href="historia.html" class="block px-4 py-2 hover:bg-yellow-500">Boas-vindas</a>                
+                  <a href="marcas.html" class="block px-4 py-2 hover:bg-yellow-500">Marcas</a>
+              </div>
+          </div>
+
+          <a href="#" class="text-white">Contactos</a>
+          <a href="https://wa.me/+244936174188" class="text-yellow-400 border border-yellow-400 px-4 py-2 rounded-lg">Fale Conosco</a>
+      </div>
+  </header>
+
+ <div class="bg-gray-100 py-24 px-4"> 
+    <div class="mb-4"><h4 class="text-3xl font-bold text-gray-800 text-center">Galeria</h4></div>
+   <!-- Galeria de Imagens -->
+   <div class="mx-auto grid grid-cols-1 md:grid-cols-4 gap-2 gallery">
+    <!-- Lista de imagens -->
+    <script>
+        const images = [
+            "assets/img/shop/476013117_122174791022356645_4554416670337460575_n.jpg",
+            "assets/img/shop/476099471_122174790950356645_5619653788332909722_n.jpg",
+            "assets/img/shop/476178366_122174790938356645_4270038287198928013_n.jpg",
+            "assets/img/shop/476252167_122174790854356645_843003375775061647_n.jpg",
+            "assets/img/shop/476467952_122174790872356645_2022143076075019351_n.jpg",
+            "assets/img/shop/476619434_122174790770356645_501406770437063900_n.jpg",
+            "assets/img/shop/476655282_122174791202356645_5194526619841864521_n.jpg",
+            "assets/img/shop/476252167_122174790854356645_843003375775061647_n.jpg",
+            "assets/img/shop/476013117_122174791022356645_4554416670337460575_n.jpg",
+            "assets/img/shop/476099471_122174790950356645_5619653788332909722_n.jpg",
+            "assets/img/shop/476178366_122174790938356645_4270038287198928013_n.jpg",
+            "assets/img/shop/476252167_122174790854356645_843003375775061647_n.jpg",
+            "assets/img/shop/476467952_122174790872356645_2022143076075019351_n.jpg",
+            "assets/img/shop/476619434_122174790770356645_501406770437063900_n.jpg",
+            "assets/img/shop/476655282_122174791202356645_5194526619841864521_n.jpg"
+        ];
+
+        document.write(images.map((src, index) => `
+            <img src="${src}" class="w-full rounded-lg cursor-pointer" onclick="openModal(${index})">
+        `).join(''));
+    </script>
+</div>
+
+<!-- Modal -->
+<div id="modal" class="hidden fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center modal">
+    <div class="relative flex items-center">
+        <!-- Botão Anterior -->
+        <button id="prev" class="absolute left-4 rounded-full shadow-lg text-gray-100 text-2xl  transition" onclick="prevImage()">&#10094;</button>
+
+        <!-- Imagem no Modal -->
+        <img id="modalImg" class="max-w-full max-h-[80vh] rounded-lg shadow-lg transition-opacity duration-300">
+
+        <!-- Botão Fechar -->
+        <button class="absolute top-2 right-2  rounded-full text-gray-100 text-2xl transition" onclick="closeModal()">✕</button>
+
+        <!-- Botão Próximo -->
+        <button id="next" class="absolute right-4 text-gray-100 shadow-lg text-2xl  transition" onclick="nextImage()">&#10095;</button>
+    </div>
+</div>
+
+<script>
+    let currentIndex = 0;
+
+    function openModal(index) {
+        currentIndex = index;
+        const modal = document.getElementById("modal");
+        const modalImg = document.getElementById("modalImg");
+        modal.classList.remove("hidden");
+        modal.style.opacity = "1";
+        modalImg.src = images[currentIndex];
+    }
+
+    function closeModal() {
+        const modal = document.getElementById("modal");
+        modal.style.opacity = "0";
+        setTimeout(() => modal.classList.add("hidden"), 300);
+    }
+
+    function prevImage() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        document.getElementById("modalImg").src = images[currentIndex];
+    }
+
+    function nextImage() {
+        currentIndex = (currentIndex + 1) % images.length;
+        document.getElementById("modalImg").src = images[currentIndex];
+    }
+
+    // Fechar modal ao clicar fora da imagem
+    document.getElementById("modal").addEventListener("click", function (event) {
+        if (event.target === this) {
+            closeModal();
+        }
+    });
+</script>
+      <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+      <script src="carrsolBG.js"> </script>
+</body>
+</html>
